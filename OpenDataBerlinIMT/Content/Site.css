@@ -22,3 +22,11 @@ select,
 textarea {
     max-width: 280px;
 }
+th {
+    text-align:center;
+    padding-left: 10px;
+}
+
+sort {
+    color:Black;
+}
