@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using OpenDataBerlinIMT.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace OpenDataBerlinIMT.Controllers
 {
     public class WebController : Controller
     {
-        public ActionResult BurnedBooks()
+        public ActionResult BurnedBooks(bool ascending = true, string orderBy = "ID")
         {
             // REFERENZ-LINK daten.berlin.de:
             // https://daten.berlin.de/datensaetze/liste-der-verbannten-b%C3%BCcher-0
@@ -33,19 +34,24 @@ namespace OpenDataBerlinIMT.Controllers
                     dynamic jsonObject = JsonConvert.DeserializeObject(jsonString);
                     if(jsonObject.index?.Count > 0)
                     {
+                        List<Book> books = new List<Book>();
+
                         dynamic bookArray = jsonObject.index;
                         foreach(dynamic book in bookArray)
                         {
-                            string authorFirstName = book.authorfirstname;
-                            string authorLastName = book.authorlastname;
-                            string firstEditionPublicationPlace = book.firsteditionpublicationplace;
-                            string firstEditionPublicationYear = book.firsteditionpublicationyear;
-                            string firstEditionPublisher = book.firsteditionpublisher;
-                            string id = book.id;
-                            string ocrresult = book.ocrresult;
-                            string title = book.title;
-                            string ssFlag = book.ssflag;
-                            string additionalInfos = book.additionalinfos;
+                            books.Add(new Book()
+                            {
+                                ID = book["id"],
+                                AuthorFirstName = book["authorfirstname"],
+                                AuthorLastName = book["authorlastname"],
+                                FirstEditionPublicationPlace = book["firsteditionpublicationplace"],
+                                FirstEditionPublicationYear = book["firsteditionpublicationyear"],
+                                FirstEditionPublisher = book["firsteditionpublisher"],
+                                Ocrresult = book["ocrresult"],
+                                Title = book["title"],
+                                SsFlag = book["ssflag"],
+                                AdditionalInfos = book["additionalinfos"],
+                            });
                         }
                     }
                 }
