@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Verbannte Bücher";
+
+}
+<h2>@ViewBag.Title.</h2>
+<h3>Hier können Sie alle in Berlin verbannten Bücher betrachten oder suchen.</h3>
+
+<form>
+    <input name="search" placeholder="Suche nach Namen" value="@Request.QueryString["search"]" style="float:left" />
+    <button type="submit">Suchen</button>
+</form>
+<table>
+    <thead>
+        <tr><th>ID</th><th>Seiten</th><th>Authoren Vorname</th><th>Authoren Nachname</th><th>Buchtitel</th><th>Herausgeber der Erstausgabe</th><th>Veröffentlichungs Ort der Erstausgabe</th><th>Erscheinungsjahr der Erstausgabe</th><th>Herausgeber der 2. Ausgabe</th><th>Veröffentlichungs Ort der 2. Ausgabe</th><th>Erscheinungsjahr der 2. Ausgabe</th><th>Zusätzliche Infromtaionen</th><th>Ocrresult</th></tr>
+        
+    
+    </thead>
+    
+    <tbody id="banishedbooks">
+        
+    </tbody>
+    
+
+</table>
+<script>
+    var element = document.getElementById("banishedbooks")
+    var books = @{ViewBag.Books};
+
+</script>
+
