@@ -54,7 +54,9 @@ namespace OpenDataBerlinIMT.Controllers
                             });
                         }
 
-                        ViewBag.Books = books;
+                        string booksString = JsonConvert.SerializeObject(books);
+
+                        ViewBag.Books = booksString;
                     }
                 }
             }
