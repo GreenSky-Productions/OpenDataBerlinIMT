@@ -1,11 +1,12 @@
 ﻿@{
     ViewBag.Title = "Verbannte Bücher";
+    
 }
 <h2>@ViewBag.Title.</h2>
 <h3>Hier können Sie alle in Berlin verbannten Bücher betrachten oder suchen.</h3>
 
 <form>
-    <input name="search" placeholder="Suche nach Namen" value="" style="float:left" />
+    <input name="search" placeholder="Suche nach Namen" value="@Request.QueryString["search"]" style="float:left" />
     <button type="submit">Suchen</button>
 </form>
 <table>
