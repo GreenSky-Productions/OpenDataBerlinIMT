@@ -6814,3 +6814,10 @@ td.visible-print {
     display: none !important;
   }
 }
+th {
+    text-align: center;
+    padding-left: 10px;
+}
+sort {
+    color: Black;
+}

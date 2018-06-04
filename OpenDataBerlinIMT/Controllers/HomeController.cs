@@ -26,5 +26,9 @@ namespace OpenDataBerlinIMT.Controllers
 
             return View();
         }
+        public ActionResult BanishedBooks()
+        {
+            return View();
+        }
     }
 }
