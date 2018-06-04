@@ -11,7 +11,7 @@ namespace OpenDataBerlinIMT.Controllers
 {
     public class WebController : Controller
     {
-        public ActionResult BanishedBooks(bool ascending = true, string orderBy = "ID")
+        public ActionResult banishedbooks(bool ascending = true, string orderBy = "ID")
         {
             // REFERENZ-LINK daten.berlin.de:
             // https://daten.berlin.de/datensaetze/liste-der-verbannten-b%C3%BCcher-0
