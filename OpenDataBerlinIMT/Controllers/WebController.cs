@@ -53,6 +53,8 @@ namespace OpenDataBerlinIMT.Controllers
                                 AdditionalInfos = book["additionalinfos"],
                             });
                         }
+
+                        ViewBag.Books = books;
                     }
                 }
             }
