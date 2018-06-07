@@ -39,7 +39,7 @@ namespace OpenDataBerlinIMT.Controllers
                         dynamic bookArray = jsonObject.index;
                         foreach(dynamic book in bookArray)
                         {
-                            books.Add(new Book()
+                            Book currentBookToAdd = new Book()
                             {
                                 ID = book["id"],
                                 AuthorFirstName = book["authorfirstname"],
@@ -51,7 +51,18 @@ namespace OpenDataBerlinIMT.Controllers
                                 Title = book["title"],
                                 SsFlag = book["ssflag"],
                                 AdditionalInfos = book["additionalinfos"],
-                            });
+
+                                PageNumberInocrDocument = book["pagenumberinocrdocument"],
+                                SecondEditionPublisher = book["secondeditionpublisher"],
+                                SecondEditionPublicationPlace = book["secondeditionpublicationplace"],
+                                SecondEditionPublicationYear = book["secondeditionpublicationyear"],
+                            };
+
+                            if(currentBookToAdd.AdditionalInfos != null && currentBookToAdd.AdditionalInfos != "")
+                            {
+                                string x = currentBookToAdd.AdditionalInfos;
+                            }
+                            books.Add(currentBookToAdd);
                         }
 
                         string booksString = JsonConvert.SerializeObject(books);

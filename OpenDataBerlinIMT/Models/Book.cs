@@ -17,5 +17,10 @@ namespace OpenDataBerlinIMT.Models
         public string Title { get; set; }
         public string SsFlag { get; set; }
         public string AdditionalInfos { get; set; }
+
+        public string PageNumberInocrDocument { get; set; }
+        public string SecondEditionPublisher { get; set; }
+        public string SecondEditionPublicationPlace { get; set; }
+        public string SecondEditionPublicationYear { get; set; }
     }
 }
